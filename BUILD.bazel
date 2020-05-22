@@ -1,0 +1,16 @@
+cc_binary(
+  name = "stunserver",
+  srcs = [
+    "stunserver/stunserver_main.cc"
+  ],
+  copts = [
+      "-Iexternal/com_google_webrtc/src",
+  ],
+  deps = [
+      "@com_google_webrtc//:webrtc-lib",
+      "@com_google_webrtc//:p2p_server_utils",
+      "@com_google_absl//absl/strings",
+      "@com_google_absl//absl/meta:type_traits",
+      "@com_google_absl//absl/types:optional",
+    ],
+)
