@@ -4,10 +4,6 @@ cc_library(
         "src/out/Release/obj/libwebrtc.a"
     ],
     hdrs = glob(["src/**/*.h"]),
-    defines = [
-        "WEBRTC_POSIX",
-        "WEBRTC_MAC",
-    ],
     visibility = ["//visibility:public"],
 )
 
@@ -16,10 +12,6 @@ cc_library(
     srcs = [
         "src/out/Release/obj/p2p/p2p_server_utils/stun_server.o",
         "src/out/Release/obj/p2p/p2p_server_utils/turn_server.o",
-    ],
-    defines = [
-        "WEBRTC_POSIX",
-        "WEBRTC_MAC",
     ],
     visibility = ["//visibility:public"],
 )

@@ -6,6 +6,10 @@ cc_binary(
   copts = [
       "-Iexternal/com_google_webrtc/src",
   ],
+  defines = [
+      "WEBRTC_POSIX",
+      "WEBRTC_MAC",
+  ],
   deps = [
       "@com_google_webrtc//:webrtc-lib",
       "@com_google_webrtc//:p2p_server_utils",
