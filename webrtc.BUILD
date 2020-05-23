@@ -32,25 +32,24 @@ cc_library(
 
 cc_library(
     name = "rtc_p2p",
-    srcs = [
-        "src/out/Release/obj/p2p/rtc_p2p/basic_packet_socket_factory.o",
-        "src/out/Release/obj/p2p/rtc_p2p/port_interface.o",
-        "src/out/Release/obj/p2p/rtc_p2p/transport_description.o",
-        "src/out/Release/obj/p2p/rtc_p2p/p2p_constants.o",
-        "src/out/Release/obj/p2p/p2p_server_utils/turn_server.o",
-        "src/out/Release/obj/p2p/rtc_p2p/async_stun_tcp_socket.o",
-    ],
-    hdrs = [
-        "src/p2p/base/basic_packet_socket_factory.h",
-        "src/api/packet_socket_factory.h",
-        "src/p2p/base/port_interface.h",
-        "src/p2p/base/transport_description.h",
-        "src/p2p/base/p2p_constants.h",
-        "src/p2p/base/turn_server.h",
-    ],
+    srcs = glob([
+        "src/out/Release/obj/p2p/**/*.o",
+    ]),
+    hdrs = glob([
+        "src/p2p/**/*.h",
+    ]),
     deps = [
-        ":libjingle_peerconnection_api"
+        ":libjingle_peerconnection_api",
+        ":api",
     ],
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "api",
+    hdrs = glob([
+        "src/api/**/*.h",
+    ]),
     visibility = ["//visibility:public"],
 )
 
