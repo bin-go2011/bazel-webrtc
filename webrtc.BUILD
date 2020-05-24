@@ -91,3 +91,14 @@ cc_library(
     ]),
     visibility = ["//visibility:public"],
 )
+
+cc_library(
+    name = "system_wrappers",
+    srcs = [
+        "src/out/Release/obj/system_wrappers/field_trial/field_trial.o"
+    ],
+    hdrs = glob([
+        "src/system_wrappers/**/*.h",
+    ]),
+    visibility = ["//visibility:public"],
+)

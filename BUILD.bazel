@@ -63,3 +63,31 @@ cc_binary(
     "@com_google_absl//absl/flags:parse",
   ]
 )
+
+cc_binary(
+  name = "peerconnection_server",
+  srcs = [
+      "peerconnection/server/data_socket.cc",
+      "peerconnection/server/data_socket.h",
+      "peerconnection/server/main.cc",
+      "peerconnection/server/peer_channel.cc",
+      "peerconnection/server/peer_channel.h",
+      "peerconnection/server/utils.cc",
+      "peerconnection/server/utils.h",
+  ],
+  copts = [
+      "-std=c++14",
+      "-Iexternal/com_google_webrtc/src",
+  ],
+  defines = [
+      "WEBRTC_POSIX",
+      "WEBRTC_MAC",
+  ],
+  deps = [
+    "@com_google_webrtc//:rtc_base",
+    "@com_google_webrtc//:system_wrappers",    
+    "@com_google_absl//absl/flags:flag",
+    "@com_google_absl//absl/flags:parse",
+    "@com_google_absl//absl/flags:usage",
+  ],
+)
